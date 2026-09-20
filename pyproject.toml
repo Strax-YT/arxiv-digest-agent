@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arxiv-digest-agent"
+version = "1.0.0"
+description = "Autonomous arXiv paper digest & grounded QA agent"
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31,<3"]
+
+[project.optional-dependencies]
+full = ["PyMuPDF>=1.24", "pdfplumber>=0.11", "chromadb>=0.5,<2", "sentence-transformers>=3.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+arxiv-agent = "arxiv_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

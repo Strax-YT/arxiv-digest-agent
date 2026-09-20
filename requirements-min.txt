@@ -1,0 +1,5 @@
+# Minimal install: no chromadb, no torch. Uses the built-in flat vector store
+# and the hashing embedder. ~40 MB instead of ~2.5 GB, good for a quick look.
+requests>=2.31,<3
+PyMuPDF>=1.24
+pytest>=8.0

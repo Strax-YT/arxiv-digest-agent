@@ -1,0 +1,17 @@
+# Core (required)
+requests>=2.31,<3
+
+# PDF parsing — PyMuPDF is primary, pdfplumber is the layout fallback.
+PyMuPDF>=1.24
+pdfplumber>=0.11
+
+# Vector store. Omit it and the agent falls back to its built-in flat store,
+# which is exact (brute-force cosine) and fine at the scale of one paper.
+chromadb>=0.5,<2
+
+# Embeddings. Omit it and the agent falls back to a lexical hashing embedder
+# (works offline, noticeably weaker semantics — the run reports the downgrade).
+sentence-transformers>=3.0
+
+# Tests only
+pytest>=8.0
