@@ -11,7 +11,7 @@ abstention is visible on screen. Say almost nothing over it. A working thing is
 the strongest first 30 seconds you have.
 
 **Why the graph is hand-written (0:35–1:20).**
-The honest version: nine nodes, simple routing, ~150 lines of runtime. The
+The honest version: nine nodes, simple routing, ~230 lines of runtime. The
 dependency would have cost more to explain than to replace, and I wanted the
 retry policy, the criticality flags and the checkpoint boundary visible in one
 file. Mention that the public API mirrors LangGraph's so the port is mechanical,
@@ -20,12 +20,13 @@ graph` can draw the diagram from live wiring instead of me maintaining a picture
 that rots. Show that command running if you have the seconds.
 
 **The one design decision I'd defend hardest (1:20–2:15).**
-Pick grounding. Walk the four layers quickly: the similarity gate that abstains
+Pick grounding. Walk the five layers quickly: the similarity gate that abstains
 *before* any LLM call, the context-only prompt, the citation contract that gets
-verified against what was actually retrieved, and MMR so the model isn't looking
-at five copies of the same paragraph. The line to land: an answer that cites a
-chunk id I can check is a different kind of object from an answer that sounds
-right. Mention that bibliographic fields never come from the model at all.
+verified against what was actually retrieved, MMR so the model isn't looking at
+five copies of the same paragraph, and the support check that compares each
+citing sentence against the chunk it points at. The line to land: an answer
+that cites a chunk id I can check is a different kind of object from an answer
+that sounds right. Mention that bibliographic fields never come from the model at all.
 
 **Failure handling (2:15–3:00).**
 Two things. The relaxation ladder — show `query_attempts` in the output so they
